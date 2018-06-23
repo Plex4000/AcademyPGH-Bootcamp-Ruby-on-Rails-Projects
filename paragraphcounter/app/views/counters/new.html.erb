@@ -1,0 +1,11 @@
+<%= form_with scope: :counter, local: true do |form| %>
+   
+    <p>
+      <%= form.label :text, 'Enter your text here:' %><br>
+      <%= form.text_area :text %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
