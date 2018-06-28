@@ -13,7 +13,7 @@ class ScoreboardsController < ApplicationController
         elsif scores.count('score') < 10
             render :json => scores
         else
-            render json: {"message": "saved"}.to_json
+            render json: {"message": "database is empty"}.to_json
         end
 
         # if scores.count('score') > 10
