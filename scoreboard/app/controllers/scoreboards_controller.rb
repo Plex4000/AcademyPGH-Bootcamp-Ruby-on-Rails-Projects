@@ -13,9 +13,9 @@ class ScoreboardsController < ApplicationController
 
         if scores.count('score') > 10
             getFirstThree = scores.first(10)
-            render :json => getFirstThree
+            render json: {"message": "", "scores": getFirstThree}
         elsif scores.count('score') < 10
-            render :json => scores
+            render json: {"message": "", "scores": scores}
         else
             render json: {"message": "database is empty"}.to_json
         end
