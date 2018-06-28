@@ -2,26 +2,25 @@ class ScoreboardsController < ApplicationController
 
     def getscores
 
-        scores = Scorecard.order('score DESC')
+        # scores = Scorecard.select('name, score').order('score DESC').each do |b|
+        #     p b.to_json(only: [:name, :score,])
+        # end
+        # scores = Scorecard.pluck(:name, :score)
+        scores = Scorecard.select([:id, :name, :score]).order('score DESC')
+        # scores = Scorecard.find(:all, :select => 'id, name, score').order('score DESC')
         
         # render :json => scores
 
         if scores.count('score') > 10
             getFirstThree = scores.first(10)
-            # return getFirstThree
             render :json => getFirstThree
         elsif scores.count('score') < 10
             render :json => scores
         else
             render json: {"message": "database is empty"}.to_json
         end
-
-        # if scores.count('score') > 10
-        #    render :json => scores
-        # end
         
         # render json: {status 'SUCCESS', message: 'Returned Scores', data: scores}, status:OK
-        # render :json => scores
 
     end
 
