@@ -1,11 +1,20 @@
-<%= form_with scope: :counter, local: true do |form| %>
+ <%= form_with scope: :counter, url: counters_path, local: true do |form| %>
    
     <p>
-      <%= form.label :text, 'Enter your text here:' %><br>
-      <%= form.text_area :text %>
+      <h2><%= form.label :paragraph, 'Enter your text here:' %></h2><br>
+      <%= form.text_area :paragraph, size: "60x10" %>
     </p>
-   
+    <%= form.hidden_field :charcount, :value => 1 %>
+    <%= form.hidden_field :wordcount, :value => 1 %>
     <p>
-      <%= form.submit %>
+      <%= form.submit 'Count Paragraph' %>
     </p>
   <% end %>
+
+<!-- <%= form_tag("/counters", method: "post") do %>
+  <%= label_tag(:q, "Please enter some text:") %><br>
+  <%= text_area_tag 'text', nil, size: "40x10" %><br>
+  <%= hidden_field_tag :charcount, 1 %>
+  <%= hidden_field_tag :wordcount, 1 %>
+  <%= submit_tag("Count") %>
+<% end %> -->
