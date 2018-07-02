@@ -11,6 +11,8 @@
 
 <% if @album.songs.length !=0 %>
 
+<h2>Songs List</h2>
+
 <table>
   <tr>
     <th>Title</th>
@@ -31,4 +33,4 @@
 
 <% end %>
 <br>
-<%= link_to 'Edit Album', edit_album_path(@album) %> | <%= link_to 'Create New Album', new_album_path %> | <%= link_to 'List All Albums', albums_path %> 
+<%= link_to 'Edit Album', edit_album_path(@album) %> | <%= link_to 'Add a Song', new_album_song_path(@album) %> | <%= link_to 'Create New Album', new_album_path %> | <%= link_to 'List All Albums', albums_path %> 
