@@ -16,7 +16,7 @@ class CountersController < ApplicationController
         
         # render json: {"message": paragraph}.to_json
         # @charCount = paragraph.gsub!(/\s+/, "").length
-        @counter.charcount = p.gsub!(/\s+/, "").length
+        @counter.charcount = p.gsub(/\s+/, "").length
         @counter.wordcount = wordCount
         if @counter.save
         redirect_to @counter, notice: 'Counter was successfully created'  
